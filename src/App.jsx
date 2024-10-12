@@ -3,6 +3,7 @@ import { NavBar } from './widgets/NavBar'
 import { Route, Routes } from 'react-router-dom'
 import { Inicio } from './componentes/Inicio'
 import { findAllProducts } from './services/Productos'
+import { Footer } from './widgets/Footer'
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
 
     listaProduct()
   }, [])
-  console.log(products[0]?(products[0].imagen):(null))
+  console.log(products[0] ? (products[0].imagen) : (null))
 
   return (
     <>
@@ -30,7 +31,7 @@ function App() {
         <Route path='/' element={<Inicio products={products} />} />
       </Routes>
 
-
+      <Footer />
     </>
   )
 }

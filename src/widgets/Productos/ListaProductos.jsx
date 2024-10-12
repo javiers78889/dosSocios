@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const ListaProductos = ({ item }) => {
-    const { name, imagen, cantidad, precio } = item
+    const { name, imagen, cantidad,description, precio } = item
     return (
         <div className="product-item" key={item.id}>
             <figure>
@@ -10,30 +10,15 @@ export const ListaProductos = ({ item }) => {
                 </a>
             </figure>
             <div className="d-flex flex-column text-center">
-                <h3 className="fs-6 fw-normal">{name}</h3>
-                <div>
-                    <span className="rating">
-                        <svg width="18" height="18" className="text-warning">
-                            <use xlinkHref="#star-full"></use>
-                        </svg>
-                        <svg width="18" height="18" className="text-warning">
-                            <use xlinkHref="#star-full"></use>
-                        </svg>
-                        <svg width="18" height="18" className="text-warning">
-                            <use xlinkHref="#star-full"></use>
-                        </svg>
-                        <svg width="18" height="18" className="text-warning">
-                            <use xlinkHref="#star-full"></use>
-                        </svg>
-                        <svg width="18" height="18" className="text-warning">
-                            <use xlinkHref="#star-half"></use>
-                        </svg>
-                    </span>
-                    <span>Disponibles ({cantidad})</span>
+                <h3 className="fs-6 fw-normal">{name} : {description}</h3>
+                <div className='text-center'>
+                    
+                    
+                    <span >Disponibles ({cantidad})</span>
                 </div>
                 <div className="d-flex justify-content-center align-items-center gap-2">
 
-                    <span className="text-dark fw-semibold">${precio}</span>
+                    <span className="text-dark fw-semibold"><h3>${precio}</h3></span>
 
                 </div>
                 <div className="button-area p-3 pt-0">
