@@ -16,8 +16,8 @@ export const Categorias = () => {
                             <div className="d-flex align-items-center">
                                 <a href="#" className="btn btn-primary me-2">View All</a>
                                 <div className="swiper-buttons">
-                                    <button className="swiper-prev category-carousel-prev btn btn-yellow">❮</button>
-                                    <button className="swiper-next category-carousel-next btn btn-yellow">❯</button>
+                                    <button className=" category-carousel-prev btn btn-dark">❮</button>
+                                    <button className=" category-carousel-next btn btn-dark">❯</button>
                                 </div>
                             </div>
                         </div>
@@ -28,7 +28,7 @@ export const Categorias = () => {
                         <div className="category-carousel swiper">
                             <div className="swiper-wrapper">
                                 {[
-                                    { img: imagen, title: 'Fruits & Veges' },
+                                    { img: imagen, title: 'Pinturas' },
                                     { img: imagen, title: 'Breads & Sweets' },
                                     { img: imagen, title: 'Fruits & Veges' },
                                     { img: imagen, title: 'Fruits & Veges' },

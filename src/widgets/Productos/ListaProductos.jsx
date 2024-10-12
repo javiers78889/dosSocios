@@ -1,9 +1,10 @@
-import React from 'react'
+import PropTypes from "prop-types";
+
 
 export const ListaProductos = ({ item }) => {
-    const { name, imagen, cantidad,description, precio } = item
+    const { id, name, imagen, cantidad, description, precio } = item;
     return (
-        <div className="product-item" key={item.id}>
+        <div className="product-item" key={id}>
             <figure>
                 <a href="index.html" title="Product Title">
                     <img src={`https://dossociosback.onrender.com/${imagen}`} alt="Product Thumbnail" className="tab-image" />
@@ -12,8 +13,8 @@ export const ListaProductos = ({ item }) => {
             <div className="d-flex flex-column text-center">
                 <h3 className="fs-6 fw-normal">{name} : {description}</h3>
                 <div className='text-center'>
-                    
-                    
+
+
                     <span >Disponibles ({cantidad})</span>
                 </div>
                 <div className="d-flex justify-content-center align-items-center gap-2">
@@ -36,8 +37,8 @@ export const ListaProductos = ({ item }) => {
                         </div>
                         <div className="col-2">
                             <a href="#" className="btn btn-outline-dark rounded-1 p-2 fs-6">
-                                <svg width="18" height="18">
-                                    <use xlinkHref="#heart"></use>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                    <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
                                 </svg>
                             </a>
                         </div>
@@ -47,3 +48,13 @@ export const ListaProductos = ({ item }) => {
         </div>
     )
 }
+ListaProductos.propTypes = {
+    item: PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+        name: PropTypes.string.isRequired,
+        imagen: PropTypes.string,
+        cantidad: PropTypes.number.isRequired,
+        description: PropTypes.string,
+        precio: PropTypes.number.isRequired,
+    }).isRequired,
+};

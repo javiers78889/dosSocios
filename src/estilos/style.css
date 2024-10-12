@@ -275,9 +275,9 @@ h1,h2,h3,h4,h5,h6 {
   text-align: center;
   border-radius: 10px;
   --bs-btn-border-color: transparent;
-  --bs-btn-active-bg: #ec9b22;
+  --bs-btn-active-bg: #000000;
   --bs-btn-active-border-color: transparent;
-  --bs-btn-hover-bg: var(--bs-primary);
+  --bs-btn-hover-bg: #222222;
   --bs-btn-hover-border-color: transparent;
   --bs-btn-disabled-color: #ccc;
   --bs-btn-disabled-bg: #eaeaea;

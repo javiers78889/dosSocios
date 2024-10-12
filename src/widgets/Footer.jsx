@@ -1,4 +1,4 @@
-import React from 'react'
+
 import dosSocios from '../img/ferreteria-dos-socios.png'
 export const Footer = () => {
     return (
@@ -7,7 +7,7 @@ export const Footer = () => {
                 <div className="row">
                     <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="footer-menu">
-                            <img src={dosSocios} width="240" height="180" alt="logo" />
+                            <img src={dosSocios} width="200" height="180" alt="logo" />
                             <div className="social-links mt-3">
                                 <ul className="d-flex list-unstyled gap-2">
                                     <li>
