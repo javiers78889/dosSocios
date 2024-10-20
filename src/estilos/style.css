@@ -49,10 +49,10 @@ body {
 }
 .btn-primary {
   --bs-btn-color: #ffffff;
-  --bs-btn-bg: #07B2D9;
+  --bs-btn-bg: #04ABDA;
   --bs-btn-border-color: transparent;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #0D0D0D;
+  --bs-btn-hover-bg: #0474A4;
   --bs-btn-hover-border-color: transparent;
   --bs-btn-focus-shadow-rgb: 49,132,253;
   --bs-btn-active-color: #fff;
@@ -263,6 +263,13 @@ h1,h2,h3,h4,h5,h6 {
   
 }
 
+
+
+.custom-search{
+  border: 1px solid #0474A4;
+  background-color: transparent;
+}
+
 /* Swiper carousel */
 .swiper-prev,
 .swiper-next {
@@ -330,6 +337,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 .brand-carousel .brand-item .brand-title {
   margin: 0;
+}
+
+#logotipo{
+  color:#04ABDA;
+  font-weight: bold;
+  text-decoration: none; 
 }
 
 /* product tabs */
@@ -477,6 +490,10 @@ input[type=number]::-webkit-outer-spin-button {
     right: 0;
     top: 21px;
   }
+}
+
+footer{
+  background-color: #D4E8EB;
 }
 
 /* single product */
