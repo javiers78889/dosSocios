@@ -5,9 +5,7 @@ export const Links = () => {
     return (
         <div className="col-lg-4">
             <ul className="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
-                <li className="nav-item active">
-                    <NavLink to='/' className="nav-link">Inicio</NavLink>
-                </li>
+                {/*
                 <li className="nav-item dropdown">
                     <a
                         className="nav-link dropdown-toggle pe-3"
@@ -37,8 +35,8 @@ export const Links = () => {
                     </ul>
 
                 </li>
+                */}
             </ul>
-
         </div>
     )
 }
