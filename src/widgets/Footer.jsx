@@ -1,4 +1,4 @@
-import '@fortawesome/fontawesome-free/css/all.min.css';
+
 import dosSocios from '../img/ferreteria-dos-socios.png'
 export const Footer = () => {
     return (
