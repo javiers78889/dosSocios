@@ -15,9 +15,9 @@ function App() {
 
   return (
     <>
+      <ProductProvider>
       <NavBar />
       <Categorias />
-      <ProductProvider>
         <Routes>
 
           <Route path='/' element={<Inicio />} />

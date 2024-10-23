@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom"
 import { ProductContext } from "../context/ProductContext"
 
 export const Details = () => {
-    const { products } = useContext(ProductContext)
+    const { products, agregarCarrito } = useContext(ProductContext)
     const [cantidades, setCantidades] = useState(0)
     const { id } = useParams()
     const filtrado = products.filter(n => n.id === parseInt(id))
@@ -12,11 +12,6 @@ export const Details = () => {
     }
 
 
-    const agregar = () => {
-
-        console.log({ ...filtrado, cantidades })
-
-    }
 
     return (
         <div className="container responsivo">
@@ -40,7 +35,7 @@ export const Details = () => {
                             <div className="col-3 mt-2 mb-2">
                                 <input type="number" name="quantity" className="form-control border-dark-subtle input-number quantity" defaultValue="0" onChange={cantidad} />
                             </div>
-                            <button onClick={agregar} className="btn btn-primary rounded-1 p-2 fs-7 btn-cart" disabled={cantidades <= 0 ? (true) : (false)} >
+                            <button onClick={() => agregarCarrito({ ...filtrado, cantidades })} className="btn btn-primary rounded-1 p-2 fs-7 btn-cart" disabled={cantidades <= 0 ? (true) : (false)} >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus-circle-fill me-2" viewBox="0 0 16 16">
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
                                 </svg>

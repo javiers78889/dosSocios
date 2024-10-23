@@ -4,9 +4,9 @@ import { ProductContext } from "./ProductContext"
 
 
 export const ProductProvider = ({ children }) => {
-    const { products, listaProduct } = useProducts()
+    const { products, listaProduct, agregarCarrito, carrito } = useProducts()
     return (
-        <ProductContext.Provider value={{ products, listaProduct }}>
+        <ProductContext.Provider value={{ products, listaProduct, agregarCarrito, carrito }}>
             {children}
 
         </ProductContext.Provider>
