@@ -1,13 +1,12 @@
 import React from 'react'
 import { Carrito } from './carrito/Carrito'
+import Preloader from './Preloader/Preloader';
 
 export const Menú = () => {
     return (
         <>
             {/* Preloader */}
-            <div className="preloader-wrapper">
-                <div className="preloader"></div>
-            </div>
+            <Preloader/>
 
             {/* Offcanvas Cart */}
             <Carrito />
