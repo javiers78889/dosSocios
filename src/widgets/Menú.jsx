@@ -4,10 +4,10 @@ import { Carrito } from './carrito/Carrito'
 export const Menú = () => {
     return (
         <>
-            {/* Preloader */}
+            {/* Preloader
             <div className="preloader-wrapper">
                 <div className="preloader"></div>
-            </div>
+            </div> */}
 
             {/* Offcanvas Cart */}
             <Carrito />
