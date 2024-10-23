@@ -1,8 +1,12 @@
-import React from 'react';
-import product from '../../img/product-thumb-3.png';
-import { ListaProductos } from './ListaProductos';
 
-export const Productos = ({ products }) => {
+import { ListaProductos } from './ListaProductos';
+import { ProductContext } from '../../context/ProductContext';
+import { useContext } from 'react';
+
+
+export const Productos = () => {
+    const { products } = useContext(ProductContext)
+
     return (
         <section className="pb-5">
             <div className="container-lg">
@@ -17,9 +21,11 @@ export const Productos = ({ products }) => {
 
                         <div className="row">
                             {products.length > 0 ? (
-                                products.map((item, index) => (
+                                products.map((item) => (
                                     <div className="col" key={item.id}>
-                                        <ListaProductos item={item} />
+                                       
+                                            <ListaProductos item={item} />
+                                        
                                     </div>
                                 ))
                             ) : (
