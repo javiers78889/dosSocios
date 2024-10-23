@@ -364,6 +364,18 @@ h1,h2,h3,h4,h5,h6 {
   color:#04ABDA;
   font-weight: bold;
   text-decoration: none; 
+  font-size: 30px;
+}
+@media (max-width: 768px) { /* Para pantallas más pequeñas, como tablets */
+  #logotipo {
+    font-size: 18px; /* Reducir el tamaño del texto */
+  }
+}
+
+@media (max-width: 480px) { /* Para pantallas muy pequeñas, como móviles */
+  #logotipo {
+    font-size: 20px; /* Reducir aún más el tamaño del texto */
+  }
 }
 
 /* product tabs */

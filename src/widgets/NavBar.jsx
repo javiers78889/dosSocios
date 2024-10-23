@@ -19,8 +19,8 @@ export const NavBar = () => {
                         {/* Logo and Menu Button */}
                         <div className="col-sm-4 col-lg-4 d-flex justify-content-center justify-content-sm-start align-items-center my-3">
                             <Link to="/" className="d-flex align-items-center text-decoration-none">
-                                <img src={dosSocios} alt="logo" height={60} width={60} />
-                                <span id="logotipo" className="ms-2">Ferretería Dos Socios</span>
+                                <img src={dosSocios} alt="logo" height={90} width={90} />
+                                <h1 id="logotipo" className="ms-2">Ferretería Dos Socios</h1>
                             </Link>
                         </div>
 
