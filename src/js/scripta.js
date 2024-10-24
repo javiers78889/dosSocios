@@ -2,24 +2,6 @@
 
   "use strict";
 
-  var initPreloader = function() {
-    $(document).ready(function($) {
-    var Body = $('body');
-        Body.addClass('preloader-site');
-    });
-    $(window).load(function() {
-        $('.preloader-wrapper').fadeOut();
-        $('body').removeClass('preloader-site');
-    });
-  }
-
-  // init Chocolat light box
-	var initChocolat = function() {
-		Chocolat(document.querySelectorAll('.image-link'), {
-		  imageSize: 'contain',
-		  loop: true,
-		})
-	}
 
   var initSwiper = function() {
 
@@ -154,11 +136,11 @@
   // document ready
   $(document).ready(function() {
     
-    initPreloader();
+    
     initSwiper();
     initProductQty();
     initJarallax();
-    initChocolat();
+ 
 
   }); // End of a document
 

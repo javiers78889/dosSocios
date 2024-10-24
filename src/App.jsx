@@ -7,7 +7,7 @@ import { Footer } from './widgets/Footer'
 import { ProductProvider } from './context/ProductProvider'
 import { Details } from './componentes/Details'
 import { Categorias } from './widgets/categorias/Categorias'
-
+import '../src/js/scripta.js'
 
 
 function App() {
