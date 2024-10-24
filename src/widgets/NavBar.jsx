@@ -31,7 +31,7 @@ export const NavBar = () => {
                                     <form id="search-form" className="text-center" action="index.html" method="post">
                                         <input
                                             type="text"
-                                            className="form-control custom-search border-0 bg-transparent"
+                                            className="form-control custom-search border-1 bg-transparent"
                                             placeholder="¿Qué necesitas?"
                                         />
                                     </form>

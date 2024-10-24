@@ -1,18 +1,32 @@
-import c1 from '../../img/categorias/materiales.png'
-import c2 from '../../img/categorias/techos.jpg'
-import c3 from '../../img/categorias/puertas.jpg'
-import c4 from '../../img/categorias/ventanas.jpg'
-import c5 from '../../img/categorias/pinturas.jpg'
-import c6 from '../../img/categorias/herramientas.jpg'
-import c7 from '../../img/categorias/plomeria.jpg'
-import c8 from '../../img/categorias/electricidad.jpg'
-import c9 from '../../img/categorias/iluminacion.jpg'
-
-
+import { useNavigate } from 'react-router-dom';
+import c1 from '../../img/categorias/materiales.png';
+import c2 from '../../img/categorias/techos.jpg';
+import c3 from '../../img/categorias/puertasVentana.jpg';
+import c4 from '../../img/categorias/plomeria.jpg';
+import c5 from '../../img/categorias/electricidad.jpg';
+import c6 from '../../img/categorias/madera.jpg';
+import c7 from '../../img/categorias/pinturas.jpg';
+import c8 from '../../img/categorias/cieloRaso.jpg';
+import c9 from '../../img/categorias/cerca.jpg';
 
 export const Categorias = () => {
+    const navigate = useNavigate();
 
-   
+    const categories = [
+        { img: c1, title: 'Materiales de construcción', id: 'materiales' },
+        { img: c2, title: 'Techos y Carriolas', id: 'techos' },
+        { img: c3, title: 'Puertas y Ventanas', id: 'puertas' },
+        { img: c4, title: 'Plomeria', id: 'plomeria' },
+        { img: c5, title: 'Electricidad', id: 'electricidad' },
+        { img: c6, title: 'Madera', id: 'madera' },
+        { img: c7, title: 'Pinturas', id: 'pinturas' },
+        { img: c8, title: 'Cielo raso', id: 'cieloraso' },
+        { img: c9, title: 'Cercas', id: 'cercas' }
+    ];
+
+    const handleCategoryClick = (id) => {
+        navigate(`/categoria/${id}`);
+    };
 
     return (
         <section className="py-5 overflow-hidden">
@@ -20,14 +34,7 @@ export const Categorias = () => {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="section-header d-flex flex-wrap justify-content-between mb-5">
-                            <h2 className="section-title">Categorias</h2>
-                            <div className="d-flex align-items-center">
-                                <a href="#" className="btn btn-primary me-2">Ver todo</a>
-                                <div className="swiper-buttons">
-                                    <button className=" category-carousel-prev btn btn-dark">❮</button>
-                                    <button className=" category-carousel-next btn btn-dark">❯</button>
-                                </div>
-                            </div>
+                            <h2 className="section-title">Categorías</h2>
                         </div>
                     </div>
                 </div>
@@ -35,22 +42,15 @@ export const Categorias = () => {
                     <div className="col-md-12">
                         <div className="category-carousel swiper">
                             <div className="swiper-wrapper">
-                                {[
-                                    { img: c1, title: 'Construcción' },
-                                    { img: c2, title: 'Techos' },
-                                    { img: c3, title: 'Puertas' },
-                                    { img: c4, title: 'Ventanas' },
-                                    { img: c5, title: 'Pinturas' },
-                                    { img: c6, title: 'Herramientas' },
-                                    { img: c7, title: 'Plomeria' },
-                                    { img: c8, title: 'Electricidad' },
-                                    { img: c9, title: 'Iluminación' },
-
-                                ].map((category, index) => (
-                                    <a key={index} href="category.html" className="nav-link swiper-slide text-center">
+                                {categories.map((category, index) => (
+                                    <div
+                                        key={index}
+                                        className="nav-link swiper-slide text-center"
+                                        onClick={() => handleCategoryClick(category.id)}
+                                    >
                                         <img src={category.img} className="rounded-circle img-fluid" alt="Category Thumbnail" />
                                         <h4 className="fs-6 mt-3 fw-normal category-title">{category.title}</h4>
-                                    </a>
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -58,5 +58,5 @@ export const Categorias = () => {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};

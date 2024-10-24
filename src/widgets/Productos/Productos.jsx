@@ -13,9 +13,9 @@ export const Productos = () => {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="section-header d-flex flex-wrap justify-content-between my-4">
-                            <h2 className="section-title">Listado de Productos</h2>
+                            <h2 className="section-title">Productos destacados</h2>
                             <div className="d-flex align-items-center">
-                                <a href="#" className="btn btn-primary rounded-1">View All</a>
+                                <a href="#" className="btn btn-primary rounded-1">Ver más</a>
                             </div>
                         </div>
 
