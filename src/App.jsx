@@ -5,7 +5,7 @@ import { Footer } from './widgets/Footer';
 import { ProductProvider } from './context/ProductProvider';
 import { Details } from './componentes/Details';
 import { Categorias } from './widgets/categorias/Categorias';
-import { ProductosCategoria } from './widgets/categorias/ProductosCategoria.jsx';// Asegúrate de crear este componente
+import { ProductosCategoria } from './widgets/categorias/ProductosCategoria.jsx';
 import '../src/js/scripta.js';
 
 function App() {

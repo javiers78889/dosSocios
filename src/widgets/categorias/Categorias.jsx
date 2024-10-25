@@ -35,6 +35,13 @@ export const Categorias = () => {
                     <div className="col-md-12">
                         <div className="section-header d-flex flex-wrap justify-content-between mb-5">
                             <h2 className="section-title">Categorías</h2>
+                            <div className="d-flex align-items-center">
+                                <a href="/todas-las-categorias" className="btn btn-primary me-2">Ver todo</a>
+                                <div className="swiper-buttons">
+                                    <button className="category-carousel-prev btn btn-dark">❮</button>
+                                    <button className="category-carousel-next btn btn-dark">❯</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
