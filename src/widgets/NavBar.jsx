@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Menú } from './Menú';
 import dosSocios from '../img/logoSencillo.png';
 import { Svg } from './Svg';
