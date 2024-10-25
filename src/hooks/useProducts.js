@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { findAllProducts } from "../services/Productos";
+import { ProductsReducers } from "../reducer/ProductsReducer";
 
 // Hook para usar el contexto de productos
 export const useProducts = () => {
     const storedUser = JSON.parse(sessionStorage.getItem('carrito')) || [];
     const [products, setProducts] = useState([])
-    const [carrito, setCarrito] = useState(storedUser)
+    const [carrito, dispatch] = useReducer(ProductsReducers, storedUser)
 
     const listaProduct = async () => {
         const captura = await findAllProducts();
@@ -18,13 +19,41 @@ export const useProducts = () => {
     }, [])
 
 
+    
     const agregarCarrito = (obj) => {
+        console.log(carrito)
 
         const { cantidades } = obj
-        const { name, description, precio } = obj[0]
-        const nuevoCarrito = [...carrito, { name, description, cantidades, precio }];
-        setCarrito(nuevoCarrito)
-        sessionStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
+        const { id, name, description, precio } = obj[0]
+        const nuevoCarrito = [...carrito, { id, name, description, cantidades, precio }];
+        const verificar = carrito.find((n) => n.id === id);
+        if (verificar) {
+
+            dispatch({
+                type: 'updateProduct',
+                payload: { id, cantidades: (Number(verificar.cantidades) + Number(cantidades)) },
+            })
+            
+        }
+        else {
+            console.log('agregando')
+            dispatch({
+                type: 'addProduct',
+                payload: nuevoCarrito
+            })
+            
+        }
+
+    }
+    const eliminarCarrito = (id) => {
+
+        dispatch({
+            type: 'deleteProduct',
+            payload: id
+
+        })
+
+
     }
 
 
@@ -34,6 +63,7 @@ export const useProducts = () => {
         products,
         listaProduct,
         agregarCarrito,
+        eliminarCarrito,
         carrito
     }
 };

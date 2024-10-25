@@ -2,8 +2,8 @@ import React, { useContext } from 'react'
 import { ProductContext } from '../../context/ProductContext'
 
 export const Carrito = () => {
-    const { carrito } = useContext(ProductContext)
-
+    const { carrito, eliminarCarrito } = useContext(ProductContext)
+    sessionStorage.setItem('carrito', JSON.stringify(carrito));
     return (
         <div className="offcanvas offcanvas-end" data-bs-scroll="true" tabIndex="-1" id="offcanvasCart">
             <div className="offcanvas-header justify-content-center">
@@ -24,6 +24,7 @@ export const Carrito = () => {
                                         <small className="text-body-secondary">{n.description}</small>
                                     </div>
                                     <span className="text-body-secondary">${n.precio * n.cantidades}</span>
+                                    <button onClick={() => eliminarCarrito(n.id)}>X</button>
                                 </li>
                             ))
                         ) : (
@@ -31,7 +32,8 @@ export const Carrito = () => {
                         )}
 
                     </ul>
-                    <button className="w-100 btn btn-primary btn-lg" type="submit">Continuar</button>
+                    <button className="w-100 btn btn-secondary btn-lg mb-1" type="submit">Cotizar</button>
+                    <button className="w-100 btn btn-primary btn-lg" type="submit">Comprar</button>
                 </div>
             </div>
         </div>
