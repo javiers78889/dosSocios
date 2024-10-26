@@ -1,28 +1,25 @@
-import { useContext, useEffect, useState } from "react"
-import { ProductContext } from "../context/ProductContext"
-import { findAllUsers } from "../services/Users"
+
+import { SideBar } from "../widgets/SideBar/SideBar"
+
+import {  Route, Routes } from "react-router-dom"
+import { Home } from "../widgets/SideBar/PanelViews/Home"
+import { ListaUsuarios } from "../widgets/SideBar/PanelViews/ListaUsuarios"
 
 
 export const Dashboard = () => {
-    const { Deslogueo } = useContext(ProductContext)
-    const [personas, setPersonas] = useState([])
 
-    useEffect(() => {
-        const Listar = async () => {
-            const capturar = await findAllUsers()
-            setPersonas(capturar)
-        }
-        Listar()
 
-    }, [])
-    console.log(personas)
     return (
         <>
-            <div>Dashboard</div>
-            {personas.map((n) => (
-                <div key={n.id}>{n.user}</div>
-            ))}
-            <button onClick={() => Deslogueo()}>Deslogueo</button>
+            <div className="d-flex justify-content-center gap-5 ">
+                <SideBar />
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="usuarios" element={<ListaUsuarios/>}/>
+                </Routes>
+
+
+            </div>
         </>
     )
 }

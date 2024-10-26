@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Logueo } from "../services/Login"
 import Swal from "sweetalert2"
 import { useNavigate } from "react-router-dom"
+import { findAllUsers } from "../services/Users"
 
 const initialLog = {
     "user": "",
@@ -46,6 +47,18 @@ export const useUsers = () => {
         
     };
 
+   
+    const [personas, setPersonas] = useState([])
+
+    useEffect(() => {
+        const Listar = async () => {
+            const capturar = await findAllUsers()
+            setPersonas(capturar)
+        }
+        Listar()
+
+    }, [])
+
     const Deslogueo=()=>{
         setAuth(false)
         navigate('/')
@@ -54,6 +67,7 @@ export const useUsers = () => {
 
     return {
         user,
+        personas,
         password,
         auth,
         onChange,
