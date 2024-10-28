@@ -12,6 +12,8 @@ export const useUsers = () => {
     const [usuario, setUsuario] = useState(initialLog)
     const [auth, setAuth] = useState(false)
     const navigate = useNavigate()
+    const [logueado, setLogueado]=useState({})
+    const [loading,setLoading]=useState(false)
 
     const { user, password } = usuario
 
@@ -23,9 +25,11 @@ export const useUsers = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true)
         const token = await Logueo(usuario)
         sessionStorage.setItem('token', JSON.stringify(token));
         if (token) {
+           
             Swal.fire({
                 icon: "success",
                 title: "Bienvenido",
@@ -33,9 +37,10 @@ export const useUsers = () => {
                 timer: 1500
             });
             setAuth(true)
-            navigate('/dashboard')
+            setLogueado(usuario.user)
+            navigate('/dashboard/home')
         }
-        else{
+        else {
             Swal.fire({
                 icon: "error",
                 title: "Usuario no encontrado",
@@ -44,10 +49,10 @@ export const useUsers = () => {
             });
         }
 
-        
+
     };
 
-   
+
     const [personas, setPersonas] = useState([])
 
     useEffect(() => {
@@ -59,9 +64,10 @@ export const useUsers = () => {
 
     }, [])
 
-    const Deslogueo=()=>{
+    const Deslogueo = () => {
         setAuth(false)
-        navigate('/')
+        sessionStorage.removeItem("autenticado")
+        navigate('/login')
     }
 
 
@@ -72,6 +78,8 @@ export const useUsers = () => {
         auth,
         onChange,
         handleSubmit,
-        Deslogueo
+        Deslogueo,
+        logueado,
+        loading
     }
 }

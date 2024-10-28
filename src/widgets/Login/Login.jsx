@@ -4,12 +4,12 @@ import { ProductContext } from "../../context/ProductContext";
 
 
 export const Login = () => {
-    const{user,password,onChange,handleSubmit}=useContext(ProductContext)
+    const { user, password, onChange, handleSubmit, loading } = useContext(ProductContext)
 
     return (
         <>
 
-            <div className="d-flex align-items-center justify-content-center mb-5">
+            <div className="d-flex align-items-center justify-content-center mb-5 mt-5 pb-5">
 
                 <form onSubmit={handleSubmit} className="w-25 shadow p-5">
                     <div className="d-flex justify-content-center align-items-center flex-column gap-2">
@@ -48,8 +48,12 @@ export const Login = () => {
                             onChange={onChange}
                         />
                     </div>
+                    {loading ? (
+                        <span className="visually-hidden">Cargando...</span>
+                    ) : (
+                        <button type="submit" className="btn btn-primary">Login</button>
+                    )}
 
-                    <button type="submit" className="btn btn-primary">Login</button>
                 </form>
             </div>
         </>

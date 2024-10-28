@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 export const ListaProductos = ({ item }) => {
-    const { id, name, imagen, cantidad, description, precio } = item;
+    const { id, name, imagen, description, precio } = item;
     return (
         <div className="product-item" key={id}>
             <figure>
@@ -16,7 +16,7 @@ export const ListaProductos = ({ item }) => {
                 <div className='text-center'>
 
 
-                    <span >Disponibles ({cantidad})</span>
+                   
                 </div>
                 <div className="d-flex justify-content-center align-items-center gap-2">
 
@@ -33,7 +33,6 @@ ListaProductos.propTypes = {
         id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
         name: PropTypes.string.isRequired,
         imagen: PropTypes.string,
-        cantidad: PropTypes.number.isRequired,
         description: PropTypes.string,
         precio: PropTypes.number.isRequired,
     }).isRequired,

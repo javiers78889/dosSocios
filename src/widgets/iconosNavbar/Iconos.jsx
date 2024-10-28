@@ -10,7 +10,7 @@ export const Iconos = () => {
             <ul className="d-flex justify-content-end list-unstyled m-0">
                 <li>
                     {auth === true ? (
-                        <NavLink to='/dashboard' className="p-2 mx-1">
+                        <NavLink to='/dashboard/home' className="p-2 mx-1">
 
                         <svg width="24" height="24">
                             <use xlinkHref="#user"></use>

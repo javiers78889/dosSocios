@@ -16,7 +16,7 @@ function App() {
     <>
       <ProductProvider>
         <NavBar />
-        <Categorias />
+        
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/categorias" element={<Categorias />} />

@@ -5,9 +5,12 @@ import { ProductContext } from '../../context/ProductContext'
 import { Link, NavLink } from 'react-router-dom'
 
 export const SideBar = () => {
-    const { Deslogueo } = useContext(ProductContext)
+    const { Deslogueo, personas, logueado } = useContext(ProductContext)
+    const filtrado = personas.filter((n) => n.user === logueado)
+
+
     return (
-        <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-25" style={{ width: '280px' }}>
+        <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-25 pb-5" style={{ width: '280px' }}>
             <Link to='/dashboard' className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <img src={imga} alt="" width="32" height="32" className="rounded-circle me-2" />
                 <span className="fs-4">Dashboard</span>
@@ -15,45 +18,47 @@ export const SideBar = () => {
             <hr />
             <ul className="nav nav-pills flex-column mb-auto">
                 <li className="nav-item">
-                    <NavLink to='/dashboard' className="nav-link active" aria-current="page">
+                    <NavLink to='/dashboard/home' className="nav-link active" aria-current="page">
                         <svg className="bi me-2" width="16" height="16">
                             <use xlinkHref="#home" />
                         </svg>
                         Home
                     </NavLink>
                 </li>
+                {filtrado.role === 'admin' ? (
+                    ''
+
+                ) : (
+                    <>
+                        <li>
+                            <NavLink to='/dashboard/usuarios' className="nav-link text-white">
+                                <svg className="bi me-2" width="16" height="16">
+                                    <use xlinkHref="#speedometer2" />
+                                </svg>
+                                Usuarios
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/dashboard/catalogo' className="nav-link text-white">
+                                <svg className="bi me-2" width="16" height="16">
+                                    <use xlinkHref="#table" />
+                                </svg>
+                                Productos
+                            </NavLink>
+                        </li>
+                    </>
+                )}
+
+
                 <li>
-                    <NavLink to='/dashboard/usuarios' className="nav-link text-white">
-                        <svg className="bi me-2" width="16" height="16">
-                            <use xlinkHref="#speedometer2" />
-                        </svg>
-                        Usuarios 
-                    </NavLink>
-                </li>
-                <li>
-                    <a href="#" className="nav-link text-white">
-                        <svg className="bi me-2" width="16" height="16">
-                            <use xlinkHref="#table" />
-                        </svg>
-                        Productos 
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="nav-link text-white">
+                    <NavLink to='/dashboard/facturas' href="#" className="nav-link text-white">
                         <svg className="bi me-2" width="16" height="16">
                             <use xlinkHref="#grid" />
                         </svg>
                         Facturas
-                    </a>
+                    </NavLink>
                 </li>
-                <li>
-                    <a href="#" className="nav-link text-white">
-                        <svg className="bi me-2" width="16" height="16">
-                            <use xlinkHref="#people-circle" />
-                        </svg>
-                        Mensajes
-                    </a>
-                </li>
+              
             </ul>
             <hr />
             <div className="dropdown">
@@ -62,8 +67,8 @@ export const SideBar = () => {
                     <strong>Salir</strong>
                 </a>
                 <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                    
-                    <li><button onClick={()=> Deslogueo} className="dropdown-item" href="#">Salir</button></li>
+
+                    <li><button onClick={Deslogueo} className="dropdown-item" >Salir</button></li>
                 </ul>
             </div>
         </div>

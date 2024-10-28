@@ -23,21 +23,29 @@ export const ListaUsuarios = () => {
                             <th scope="col">Usuarios</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Correo</th>
-                            <th scope="col"></th>
+                            <th scope="col">Role</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {personas.map((n) => (
-                            <>
-                                <tr key={ n.id }>
+                        {personas.length > 0 ? (
+                            personas.map((n) => (
+
+                                <tr key={n.id}>
 
                                     <td >{n.user}</td>
                                     <td >{n.telefono}</td>
                                     <td >{n.correo}</td>
-                                    <td><button>Editar</button></td>
+                                    <td >{n.role}</td>
+                                    <td><button className="btn btn-primary shadow">Editar</button></td>
                                 </tr>
-                            </>
-                        ))}
+
+                            ))
+                        ) : (
+                            <tr >
+                                <td><span>No hay Usuarios Registrados</span></td>
+                            </tr>
+                        )
+                        }
                     </tbody>
                 </table>
             </div>

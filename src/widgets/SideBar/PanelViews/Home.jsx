@@ -3,9 +3,10 @@ import { ProductContext } from "../../../context/ProductContext"
 
 
 export const Home = () => {
-    const {personas,products}=useContext(ProductContext)
-    const conteoPersona= personas.length
-    const conteoProductos =products.length
+    const { personas, products, logueado, pedidos } = useContext(ProductContext)
+    const conteoPersona = personas.length || 0
+    const conteoProductos = products.length || 0
+    const conteoPedidos = pedidos.length || 0
     return (
         <div className="d-flex justify-content-center align-items-center w-100 flex-column mb-5 shadow">
             <div className="d-flex justify-content-center gap-2 flex-column ">
@@ -16,24 +17,24 @@ export const Home = () => {
 
             </div>
             <div className="d-flex justify-content-center">
-                <h1 className="text-center">Bienvenido</h1>
+                <h1 className="text-center">Bienvenido {logueado? (logueado) : 'Invitado'}</h1>
             </div>
-            <div className="d-flex  mt-2">
+            <div className="d-flex w-50 mt-2">
                 <table className="table ">
                     <thead>
                         <tr>
                             <th scope="col">Usuarios</th>
                             <th scope="col">Productos</th>
                             <th scope="col">Facturas</th>
-                            <th scope="col">Mensajes</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>{conteoPersona}</td>
                             <td>{conteoProductos}</td>
-                            <td>Facturas</td>
-                            <td>Mensajes</td>
+                            <td>{conteoPedidos}</td>
+
                         </tr>
                     </tbody>
                 </table>
