@@ -19,8 +19,6 @@ export const UserFacturas = () => {
                             <td >{n.productosCantidad}</td>
                             <td >{n.total}</td>
                             <td >{n.estado}</td>
-                            <td><button className="btn btn-secondary shadow">Editar</button></td>
-                            <td><button className="btn btn-danger shadow">{n.estado === 'Pendiente' ? 'Enviar' : n.estado === 'Enviado' ? 'Entregar' : ''}</button></td>
                             <td><button className="btn btn-primary shadow">Factura</button></td>
                         </tr>
 
