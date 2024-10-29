@@ -4,7 +4,7 @@ import Swal from "sweetalert2"
 import { useNavigate } from "react-router-dom"
 import { findAllUsers } from "../services/Users"
 
-const initialLog = {
+const initialLog = JSON.parse(sessionStorage.getItem('logueado')) || {
     "user": "",
     "password": ""
 }
@@ -12,14 +12,14 @@ export const useUsers = () => {
     const [usuario, setUsuario] = useState(initialLog || [])
     const [auth, setAuth] = useState(false)
     const navigate = useNavigate()
-    const [logueado, setLogueado]=useState({})
-    const [loading,setLoading]=useState(false)
+    const [logueado, setLogueado] = useState({})
+    const [loading, setLoading] = useState(false)
 
     const { user, password } = usuario
 
     const onChange = (e) => {
         setUsuario({ ...usuario, [e.target.name]: e.target.value })
-        console.log(e.target.value)
+       
 
     }
 
@@ -29,7 +29,7 @@ export const useUsers = () => {
         const token = await Logueo(usuario)
         sessionStorage.setItem('token', JSON.stringify(token));
         if (token) {
-           
+
             Swal.fire({
                 icon: "success",
                 title: "Bienvenido",
@@ -37,6 +37,7 @@ export const useUsers = () => {
                 timer: 1500
             });
             setAuth(true)
+            sessionStorage('logueado', JSON.stringify(auth))
             setLogueado(usuario.user)
             navigate('/dashboard/home')
         }
