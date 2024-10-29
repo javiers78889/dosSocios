@@ -8,7 +8,7 @@ export const SideBar = () => {
     const { Deslogueo, personas, logueado } = useContext(ProductContext)
     const filtrado = personas.filter((n) => n.user === logueado)
 
-
+    console.log()
     return (
         <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-25 pb-5" style={{ width: '280px' }}>
             <Link to='/dashboard' className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -25,7 +25,7 @@ export const SideBar = () => {
                         Home
                     </NavLink>
                 </li>
-                {filtrado.role !== 'admin' ? (
+                {filtrado[0].role !== 'admin' ? (
                     <>
 
                         <li>
@@ -60,6 +60,14 @@ export const SideBar = () => {
                                     <use xlinkHref="#table" />
                                 </svg>
                                 Productos
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/dashboard/facturas' href="#" className="nav-link text-white">
+                                <svg className="bi me-2" width="16" height="16">
+                                    <use xlinkHref="#grid" />
+                                </svg>
+                                Facturas
                             </NavLink>
                         </li>
                     </>

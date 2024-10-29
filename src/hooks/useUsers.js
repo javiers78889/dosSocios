@@ -9,7 +9,7 @@ const initialLog = {
     "password": ""
 }
 export const useUsers = () => {
-    const [usuario, setUsuario] = useState(initialLog)
+    const [usuario, setUsuario] = useState(initialLog || [])
     const [auth, setAuth] = useState(false)
     const navigate = useNavigate()
     const [logueado, setLogueado]=useState({})
