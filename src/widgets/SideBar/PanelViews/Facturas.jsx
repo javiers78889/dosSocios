@@ -29,7 +29,7 @@ export const Facturas = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {filtrado.role === 'admin'?(
+                        {filtrado[0].role === 'admin'?(
 
                             <AdminFacturas/>
                         ):(

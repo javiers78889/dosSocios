@@ -5,7 +5,8 @@ import { ProductContext } from "../../../../context/ProductContext"
 export const UserFacturas = () => {
     const { pedidos,logueado,personas } = useContext(ProductContext)
     const filtrado = personas.filter((n) => n.user === logueado)
-    const filteredPedidos = pedidos.filter((n) => n.name === filtrado.name);
+    const filteredPedidos = pedidos.filter((n) => n.name === filtrado[0].user);
+    console.log(filtrado)
     return (
         <>
             {
