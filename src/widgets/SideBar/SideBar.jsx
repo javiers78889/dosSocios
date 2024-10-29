@@ -25,9 +25,25 @@ export const SideBar = () => {
                         Home
                     </NavLink>
                 </li>
-                {filtrado.role === 'admin' ? (
-                    ''
+                {filtrado.role !== 'admin' ? (
+                    <>
 
+                        <li>
+                            <NavLink to='/dashboard/facturas' href="#" className="nav-link text-white">
+                                <svg className="bi me-2" width="16" height="16">
+                                    <use xlinkHref="#grid" />
+                                </svg>
+                                Facturas
+                            </NavLink>
+                        </li>
+
+                        <ul className="nav nav-pills flex-column mb-auto pb-5">
+                            <li className="nav-item"></li>
+                        </ul>
+                        <ul className="nav nav-pills flex-column mb-auto pb-5">
+                            <li className="nav-item"></li>
+                        </ul>
+                    </>
                 ) : (
                     <>
                         <li>
@@ -50,15 +66,9 @@ export const SideBar = () => {
                 )}
 
 
-                <li>
-                    <NavLink to='/dashboard/facturas' href="#" className="nav-link text-white">
-                        <svg className="bi me-2" width="16" height="16">
-                            <use xlinkHref="#grid" />
-                        </svg>
-                        Facturas
-                    </NavLink>
-                </li>
-              
+
+
+
             </ul>
             <hr />
             <div className="dropdown">

@@ -23,7 +23,7 @@ export const findAllProducts = async () => {
 export const EditProducts = async (obj) => {
 
     const headers = {
-        'Authorization': `Bearer ${storedToken}`
+        'Authorization': `Bearer ${storedToken.token}`
     }
 
     try {

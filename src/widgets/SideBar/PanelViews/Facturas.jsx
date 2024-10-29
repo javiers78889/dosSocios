@@ -1,8 +1,11 @@
 import { useContext } from "react"
 import { ProductContext } from "../../../context/ProductContext"
+import { AdminFacturas } from "./Facturas/AdminFacturas"
+import { UserFacturas } from "./Facturas/UserFacturas"
 
 export const Facturas = () => {
-    const { pedidos } = useContext(ProductContext)
+    const { personas,logueado } = useContext(ProductContext)
+    const filtrado = personas.filter((n) => n.user === logueado)
     return (
         <div className="d-flex justify-content-center align-items-center w-100 flex-column mb-5 shadow">
             <div className="d-flex justify-content-center gap-2 flex-column ">
@@ -26,29 +29,12 @@ export const Facturas = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {pedidos.length > 0 ? (
-                            pedidos.map((n) => (
+                        {filtrado.role === 'admin'?(
 
-                                <tr key={n.id}>
-
-                                    <td >{n.name}</td>
-                                    <td >{n.productosCantidad}</td>
-                                    <td >{n.total}</td>
-                                    <td >{n.estado}</td>
-                                    <td><button className="btn btn-secondary shadow">Editar</button></td>
-                                    <td><button className="btn btn-danger shadow">{n.estado === 'Pendiente' ? 'Enviar' : n.estado === 'Enviado' ? 'Entregar' : ''}</button></td>
-                                    <td><button className="btn btn-primary shadow">Factura</button></td>
-                                </tr>
-
-                            ))
-
-                        ) : (
-                            <tr >
-                                <td><span>No hay Facturas Registradas</span></td>
-                            </tr>
-                        )
-
-                        }
+                            <AdminFacturas/>
+                        ):(
+                            <UserFacturas/>
+                        )}
                     </tbody>
                 </table>
             </div>

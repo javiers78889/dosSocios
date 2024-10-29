@@ -3,7 +3,7 @@ import { ProductContext } from "../../../context/ProductContext"
 
 
 export const Home = () => {
-    const { personas, products, logueado, pedidos } = useContext(ProductContext)
+    const { personas, products, pedidos } = useContext(ProductContext)
     const conteoPersona = personas.length || 0
     const conteoProductos = products.length || 0
     const conteoPedidos = pedidos.length || 0
@@ -17,7 +17,7 @@ export const Home = () => {
 
             </div>
             <div className="d-flex justify-content-center">
-                <h1 className="text-center">Bienvenido {logueado? (logueado) : 'Invitado'}</h1>
+                <h1 className="text-center">Bienvenido </h1>
             </div>
             <div className="d-flex w-50 mt-2">
                 <table className="table ">
